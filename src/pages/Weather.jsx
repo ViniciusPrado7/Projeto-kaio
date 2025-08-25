@@ -1,48 +1,46 @@
-import { Box, Button, FormControl, FormLabel, Input, useTheme} from '@mui/material'
+import { Box, Button, FormControl, FormLabel, Input, useTheme } from '@mui/material'
 import React, { useState } from 'react'
 
 const Weather = () => {
+  const theme = useTheme()
+  const [cidade, setCidade] = useState("São Paulo")
+  const [dias, setDias] = useState("5")
 
-  const [busca, setBusca] = useState("");
-  const [quantidadeDias, setQuantidadeDias] = useState("");
-  const theme = useTheme();
+  function handleSubmit(e) {
+    e.preventDefault()
 
-    return (
-        <Box
-            sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                minHeight: "75vh"
+  }
+
+  return (
+    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "75vh" }}>
+      <Box sx={{ width: 600, p: 3, borderRadius: 2, border: "1px solid gray" }}>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          <FormControl fullWidth>
+            <FormLabel sx={{ color: theme.palette.azul.main }}>Cidade:</FormLabel>
+            <Input value={cidade} onChange={(e) => setCidade(e.target.value)} placeholder="Digite a cidade" />
+          </FormControl>
+
+          <FormControl fullWidth>
+            <FormLabel sx={{ color: theme.palette.azul.main }}>Dias:</FormLabel>
+            <Input type="number" value={dias} onChange={(e) => setDias(e.target.value)} placeholder="Quantidade de dias" />
+          </FormControl>
+
+          <Button 
+            type="submit" 
+            variant="contained" 
+            sx={{ 
+              backgroundColor: theme.palette.azul.main, 
+              color: "white", 
+              alignSelf: "center",
+              "&:hover": { backgroundColor: theme.palette.azul.hover }
             }}
-        >
-              <Box
-                sx={{
-                    width: 600,
-                    p: 3,
-                    borderRadius: 2,
-                    border: "1px solid gray",
-                    display: "flex",
-                    flexDirection: "column",
-                }}
-            >
-                <form  style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                    <FormControl fullWidth required>
-                        <FormLabel sx={{ color: theme.palette.azul }}>Nome cidade:</FormLabel>
-                        <Input type='text' onChange={(e) => setBusca(e.target.value)} value={busca} placeholder="Digite sua busca" />
-                    </FormControl>
-
-                    <FormControl fullWidth required>
-                        <FormLabel sx={{ color: theme.palette.azul }}>Dias:</FormLabel>
-                        <Input type='number' onChange={(e) => setQuantidadeDias(e.target.value)} value={quantidadeDias} placeholder="Digite a quantidade de dias" />
-                    </FormControl>
-                    <Button type='submit' variant="contained" sx={{ backgroundColor: theme.palette.azul, color: 'white', alignSelf: 'center' }}>
-                        Buscar
-                    </Button>
-                </form>
-            </Box>
-        </Box>
-    )
+          >
+            Buscar
+          </Button>
+        </form>
+      </Box>
+    </Box>
+  )
 }
 
 export default Weather
