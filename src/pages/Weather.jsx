@@ -73,13 +73,28 @@ const Weather = () => {
             <Box sx={{ width: 600, p: 3, borderRadius: 2, border: "1px solid gray" }}>
                 <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                     <FormControl fullWidth>
-                        <FormLabel sx={{ color: theme.palette.azul.main }}>Cidade:</FormLabel>
-                        <Input value={cidade} onChange={(e) => setCidade(e.target.value)} placeholder="Digite a cidade" />
+                        <FormLabel htmlFor="cidade-input" sx={{ color: theme.palette.azul.main }}>
+                            Cidade:
+                        </FormLabel>
+                        <Input
+                            id="cidade-input"
+                            value={cidade}
+                            onChange={(e) => setCidade(e.target.value)}
+                            placeholder="Digite a cidade"
+                        />
                     </FormControl>
 
                     <FormControl fullWidth>
-                        <FormLabel sx={{ color: theme.palette.azul.main }}>Dias:</FormLabel>
-                        <Input type="number" value={dias} onChange={(e) => setDias(e.target.value)} placeholder="Quantidade de dias" />
+                        <FormLabel htmlFor="dias-input" sx={{ color: theme.palette.azul.main }}>
+                            Dias:
+                        </FormLabel>
+                        <Input
+                            id="dias-input"
+                            type="number"
+                            value={dias}
+                            onChange={(e) => setDias(e.target.value)}
+                            placeholder="Quantidade de dias"
+                        />
                     </FormControl>
 
                     <Button
@@ -89,7 +104,7 @@ const Weather = () => {
                             backgroundColor: theme.palette.azul.main,
                             color: "white",
                             alignSelf: "center",
-                            "&:hover": { backgroundColor: theme.palette.azul.hover }
+                            "&:hover": { backgroundColor: theme.palette.azul.hover },
                         }}
                     >
                         Buscar
