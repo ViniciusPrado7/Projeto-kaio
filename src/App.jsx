@@ -1,11 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Weather from './pages/weather'
-
+import Weather from './pages/Weather.jsx'
 
 function App() {
-
-
   return (
     <Routes>
       <Route path='/' element={<Weather />} />
