@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://viniciusprado7.github.io/Projeto-kaio/",
   "scripts": {
     "test": "jest",
     "dev": "vite",
